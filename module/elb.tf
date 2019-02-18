@@ -21,7 +21,8 @@ resource "aws_elb" "poc-loadbalancer" {
     idle_timeout = 300
     connection_draining = true
     connection_draining_timeout = 300
- 
+
+    depends_on = ["aws_instance.poc-backend-node"]
     tags = {
         Name = "${var.project_name}"
     }
